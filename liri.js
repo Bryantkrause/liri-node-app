@@ -39,8 +39,16 @@ let songer = _ => {
 
 }
 
-let notGoodFellas = _ => {
-
+let notGoodFellas = (movie) => {
+// default value of GET
+fetch(`http://www.omdbapi.com/?t=${movie}&apikey=trilogy`)
+.then(r => r.json())
+.then(movie => {
+    console.log(movie)
+    console.log(movie.Poster)
+})
+// error handling to be always used for when something can go wrong
+.catch(e => console.log(e))
 }
 
 let doIt = _ => {
